@@ -59,14 +59,9 @@ public class UserService {
         return userDao.save(user);
     }
     
-    public User updateUserId(User user,String userId) {
+    public User updateUserEmail(User user,String userId) {
     	User us=userDao.findById(userId).get();
-    	//System.out.println(us.getUserFirstName());
-//    	Role role=roleDao.findById("Admin").get();
-//    	Set<Role> adminRoles = new HashSet<>();
-//    	adminRoles.add(role);
-//        us.setRole(adminRoles);
-        us.setUserFirstName(user.getUserFirstName());
+        us.setEmail(user.getEmail());
         return userDao.save(us);
     }
 

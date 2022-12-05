@@ -31,7 +31,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService jwtService;
 	
-	
+	public static final String[] PUBLIC_URL= {
+		"/api/auth/**",
+        "/v3/api-docs",
+        "/v2/api-docs",
+        "/swagger-resources/**",
+        "/swagger-ui/**",
+        "/webjars/***"
+	};
 	
 	@Bean
 	@Override

@@ -34,9 +34,9 @@ public class UserController {
     }
     @PutMapping("/updateUserId/{id}")
     @PreAuthorize("hasRole('Admin')")
-    public ResponseEntity<?> updateUserId(@RequestBody User user,@PathVariable String id) {
+    public ResponseEntity<?> updateEmail(@RequestBody User user,@PathVariable String id) {
         
-    	User updateUserId = userService.updateUserId(user,id);
+    	User updateUserId = userService.updateUserEmail(user,id);
     	if(updateUserId !=null) {
     		return new ResponseEntity<String>("User Update Sucessfull",HttpStatus.OK);
     	}
@@ -50,7 +50,7 @@ public class UserController {
     }
 
     @GetMapping({"/forUser"})
-    @PreAuthorize("hasRole('User')")
+    @PreAuthorize("hasAnyAuthority('Admin','User')")
     public String forUser(){
         return "This URL is only accessible to the user";
     }

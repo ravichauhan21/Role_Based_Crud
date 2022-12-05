@@ -15,11 +15,6 @@ public class RoleController {
 	@Autowired
 	private RoleService roleService;
 	
-	@GetMapping("/jai")
-	public String like() {
-		return "Jai ho";
-	}
-	
 	@PostMapping("/createRole")
 	public Role createRole(@RequestBody Role role) {
 		return roleService.createRole(role);
